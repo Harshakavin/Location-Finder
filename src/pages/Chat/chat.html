@@ -1,0 +1,80 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title align="center">{{Chatname}}</ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+
+<ion-content >
+
+  <div class="message-wrap" style="height: 4000px;" *ngIf="selection">
+
+    <div *ngFor="let msg of msgList" class="message">
+         <!--[class.left]=" msg.userId === toUser.id "-->
+         <!--[class.right]=" msg.userId === user.id ">-->
+      <!--<img class="user-img" src="" alt="" src="">-->
+
+      <!--<ion-spinner name="dots" *ngIf="msg.position === 'pending'"></ion-spinner>-->
+      <div class="msg-detail" style="margin-right: 10%" *ngIf="((msg.senderName == Chatname || msg.senderName == loginuser ) && (msg.to == loginuser || msg.to == Chatname)) ">
+        <div class="msg-info">
+          <p>
+            <ion-icon class="user-img" name="md-contact" style="float:left;"></ion-icon><a style="margin-left: 10px; color: #222222">{{  msg.senderName}}</a>  </p>
+        </div>
+        <div class="msg-content" style="background-color:#9DEE19;border-color: #343434; width: 100%">
+          <!--<span class="triangle"></span>-->
+          <p class="line-breaker " style="color: #222222; width: 100%;">{{msg.content}}</p>
+          <a style="float: right; font-size: 15px; margin-top: 9px; color: #222222">&nbsp;{{msg.time }}</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="message-wrap" style="height: 4000px;" *ngIf="!selection">
+
+    <div *ngFor="let msg of msgList" class="message">
+      <!--[class.left]=" msg.userId === toUser.id "-->
+      <!--[class.right]=" msg.userId === user.id ">-->
+      <!--<img class="user-img" src="" alt="" src="">-->
+
+      <!--<ion-spinner name="dots" *ngIf="msg.position === 'pending'"></ion-spinner>-->
+      <div class="msg-detail" style="margin-right: 10%" *ngIf="((msg.to == Chatname)) ">
+        <div class="msg-info">
+          <p>
+            <ion-icon class="user-img" name="md-contact" style="float:left;"></ion-icon><a style="margin-left: 10px; color: #222222">{{  msg.senderName}}</a>  </p>
+        </div>
+        <div class="msg-content" style="background-color:#9DEE19;border-color: #343434; width: 100%">
+          <!--<span class="triangle"></span>-->
+          <p class="line-breaker " style="color: #222222; width: 100%;">{{msg.content}}</p>
+          <a style="float: right; font-size: 15px; margin-top: 9px; color: #222222">&nbsp;{{msg.time }}</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer no-border style="height: 50px; margin-bottom: 10px;">
+  <ion-grid class="input-wrap">
+    <ion-row>
+      <ion-col col-8>
+        <ion-input class="txtinput" [(ngModel)]="input" placeholder="Text" (keyup.enter)="inputMsg()">
+
+        </ion-input>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only item-right  (click)="inputMsg()" >
+          <ion-icon style="float: right" name="ios-send" ios="ios-send" md="md-send"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only item-right (click)="gotoGetDirections()">
+          <ion-icon style="float: right" name="md-locate" ios="ios-locate" md="md-locate"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

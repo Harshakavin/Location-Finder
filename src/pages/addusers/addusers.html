@@ -1,0 +1,95 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title align="center">Find new friends</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="backg2">
+  <ion-searchbar
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+
+  <ion-item block clear style="background: #A8E333">
+    <h2>Suggestions Friends</h2>
+  </ion-item>
+
+  <div style="height: 150px;">
+
+    <div *ngFor="let user of onusers" >
+
+      <ion-grid >
+        <ion-row >
+          <ion-item (click)="sendreq()" class="FriendButton" >
+            <ion-col col-2 class="BackS" style="" >
+              <!--<ion-img  style="border-radius: 50%; height: 100px; width: 100px;" src="../.././assets/img/marty-avatar.png" ></ion-img>-->
+              <!--<ion-icon style="width: 100px; height: 100px;" name="md-contact" "></ion-icon>-->
+            </ion-col >
+
+            <ion-col col-2>
+
+                <h1  style="color: #222222;  width: 100%;">{{user.name}}</h1>
+
+            </ion-col>
+          </ion-item>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <!--<ion-item block clear style="background: #A8E333">-->
+      <!--<h2>Offline Friends</h2>-->
+    <!--</ion-item>-->
+
+    <!--<div *ngFor="let user of offusers" >-->
+
+      <!--<ion-grid >-->
+        <!--<ion-row>-->
+          <!--<ion-item  (click)="ChatWith(user.name)" class="FriendButton2" >-->
+
+            <!--<ion-col col-2 class="BackS" style="" >-->
+              <!--&lt;!&ndash;<ion-img  style="border-radius: 50%; height: 100px; width: 100px;" src="../.././assets/img/marty-avatar.png" ></ion-img>&ndash;&gt;-->
+              <!--&lt;!&ndash;<ion-icon style="width: 100px; height: 100px;" name="md-contact" "></ion-icon>&ndash;&gt;-->
+            <!--</ion-col>-->
+
+            <!--<ion-col col-2>-->
+              <!--<h1  style="color: #222222;  width: 100%;">{{user.name}}</h1>-->
+            <!--</ion-col>-->
+
+          <!--</ion-item>-->
+        <!--</ion-row>-->
+      <!--</ion-grid>-->
+    <!--</div>-->
+
+    <!--<ion-item block clear style="background: #A8E333">-->
+      <!--<h2>Group Chat</h2>-->
+    <!--</ion-item>-->
+    <!--<ion-grid >-->
+      <!--<ion-row>-->
+        <!--<ion-item  (click)="ChatWith('BestFrD')" class="FriendButton" >-->
+
+          <!--<ion-col col-2 class="BackS" style="" >-->
+            <!--&lt;!&ndash;<ion-img  style="border-radius: 50%; height: 100px; width: 100px;" src="../.././assets/img/marty-avatar.png" ></ion-img>&ndash;&gt;-->
+            <!--&lt;!&ndash;<ion-icon style="width: 100px; height: 100px;" name="md-contact" "></ion-icon>&ndash;&gt;-->
+          <!--</ion-col>-->
+
+          <!--<ion-col col-2>-->
+            <!--<h1  style="color: #222222;  width: 100%;">BestFrD</h1>-->
+          <!--</ion-col>-->
+
+        <!--</ion-item>-->
+      <!--</ion-row>-->
+    <!--</ion-grid>-->
+
+  </div>
+
+</ion-content>
+
+<ion-footer no-border style="height: 50px; margin-bottom: 10px;">
+
+</ion-footer>

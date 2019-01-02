@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title align="center">All friends</ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+
+<ion-content >
+
+  <div class="message-wrap" style="height: 150px;">
+
+    <div *ngFor="let users of user" class="message">
+
+          <ion-grid class="input-wrap">
+            <ion-row>
+              <button ion-button clear icon-only item-right  (click)="inputMsg()" >
+
+               <ion-col col-2>
+                  <ion-icon class="user-img" name="md-contact" style="float:left;"></ion-icon>
+              </ion-col>
+              <ion-col col-2>
+                  <p class="line-breaker " style="color: #222222; width: 100%;">{{user.name}}</p>
+              </ion-col>
+
+              </button>
+            </ion-row>
+          </ion-grid>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer no-border style="height: 50px; margin-bottom: 10px;">
+
+</ion-footer>

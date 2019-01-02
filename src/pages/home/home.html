@@ -1,0 +1,148 @@
+
+<ion-header>
+   <ion-navbar color="primary">
+    <button ion-button (click)="logout()" style="float: right;">
+      <ion-icon style="width: 20px; height: 20px;" name="md-power"></ion-icon>
+    </button>
+     <button ion-button menuToggle left>
+       <ion-icon style="width: 20px; height: 20px;" name="menu"></ion-icon>
+     </button>
+    <ion-title style="text-align: center;">Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+
+
+ <ion-content padding = "true " class="hbackground">
+
+
+  <ion-card-content >
+
+    <!--<button ion-button block class="Hbutton" style="vertical-align:middle"><a>Hover</a></button>-->
+    <!--<button ion-button block class="Hbutton" style="vertical-align:middle"><a>Hover </a></button>-->
+    <!--<button ion-button block class="Hbutton" style="vertical-align:middle"><a>Hover </a></button>-->
+    <!--<button ion-button block class="Hbutton" style="vertical-align:middle"><a>Hover </a></button>-->
+
+    <ion-item style=" background: transparent" >
+      <ion-avatar class="imga" align-items-center>
+        <!--<ion-img style="height: 100px;width: 100px;"  src="../.././assets/img/marty-avatar.png" ></ion-img>-->
+      </ion-avatar>
+      <a style="margin-left: 47%;color: #222222;font-size: 20px;">{{name}}</a>
+    </ion-item>
+
+    <button class="Hbutton" ion-button icon-left="" (click)="gotoGetDirections()" >
+    <ion-icon name="ios-map" ></ion-icon>
+      <a>
+      Friends Map
+      </a>
+    </button>
+
+    <button class="Hbutton" ion-button icon-left="" (click)="goToChat()" >
+      <ion-icon name="ios-chatbubbles" ></ion-icon>
+      <a >
+        Chat
+      </a>
+    </button>
+
+    <button class="Hbutton" ion-button icon-left="" (click)="addfriends()">
+      <ion-icon name="md-contacts" ></ion-icon>
+      <a>
+        Add Friends
+      </a>
+    </button>
+
+    <button class="Hbutton" ion-button icon-left="" (click)="goToNavigate()">
+      <ion-icon name="md-locate" ></ion-icon>
+      <a >
+        Locate Friends
+      </a>
+    </button>
+
+    <!--<ion-item class="row" style="width: 100%">-->
+      <!--<ion-item block class="column" style="background-color:#aaa;">-->
+        <!--<ion-icon class="Ficon"></ion-icon>-->
+        <!--<h2>Column 1</h2>-->
+        <!--<p>Some text..</p>-->
+      <!--</ion-item>-->
+      <!--<ion-item block class="column" style="background-color:#bbb;">-->
+        <!--<h2>Column 2</h2>-->
+        <!--<p>Some text..</p>-->
+      <!--</ion-item>-->
+    <!--</ion-item>-->
+
+    <!--<ion-item class="row">-->
+      <!--<ion-item block class="column" style="background-color:#aaa;">-->
+        <!--<h2>Column 1</h2>-->
+        <!--<p>Some text..</p>-->
+      <!--</ion-item>-->
+      <!--<ion-item block class="column" style="background-color:#bbb;">-->
+        <!--<h2>Column 2</h2>-->
+        <!--<p>Some text..</p>-->
+      <!--</ion-item>-->
+    <!--</ion-item>-->
+  <!--<br/>-->
+       <!--<form name="form">-->
+        <!--<ion-item>-->
+          <!--<ion-label floating>From:</ion-label>-->
+          <!--<ion-input type="place" name="place"[(ngModel)]="From" id="frm"></ion-input>-->
+        <!---->
+        <!--</ion-item>-->
+
+      <!--<ion-item>-->
+        <!--<ion-label floating>To:</ion-label>-->
+        <!--<ion-input  type="des" name="des"[(ngModel)]="To" id="to" ></ion-input>-->
+      <!--</ion-item>-->
+        <!--<br/><br/>-->
+       <!--<div>-->
+       <!--<button ion-button block (click)="gotoGetDirections()"color="primary">Get direction </button>-->
+       <!--<br/><br/>-->
+       <!--<button ion-button block [navPush]="placestovisitPage"color="primary">Places to visit</button>-->
+       <!--</div>-->
+     <!--</form>-->
+
+ <!--</ion-list>-->
+
+
+
+  </ion-card-content>
+
+   <!--<ion-grid >-->
+     <!--<ion-row>-->
+       <!--<ion-col col-1 float="left">-->
+         <!--<button ion-button style="width: 100px;height: 100px"></button>-->
+       <!--</ion-col>-->
+       <!--<ion-col col-2 float="right">-->
+         <!--<button ion-button style="width: 100px;height: 100px"></button>-->
+       <!--</ion-col>-->
+     <!--</ion-row>-->
+   <!--</ion-grid>-->
+
+
+   <div id="map"></div>
+    <a style="color: #222222;">For Business Purposes</a>
+   <ion-item style="margin-top: 10px; height: 30%;" >
+     <ion-slides autoplay="800" loop="true" speed="1600">
+       <ion-slide *ngFor="let slide of slides">
+         <img  src="{{slide.image}}" />
+       </ion-slide>
+     </ion-slides>
+   </ion-item>
+
+ </ion-content >
+
+
+
+
+
+<ion-footer style="background: #4B53F5; margin-bottom: 10px;font-size: 24px; ">
+  <button ion-button block clear (click)="gotoGetDirections()">
+    <a style="color: black">View Your Loaction</a>
+  </button>
+</ion-footer>
+
